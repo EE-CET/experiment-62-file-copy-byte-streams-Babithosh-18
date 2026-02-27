@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class FileCopy {
     public static void main(String[] args) {
-        String sourceFile = "source.txt";
+        String sourceFile = "C:/Users/babit/OneDrive/Java Experiments/experiment-62-file-copy-byte-streams-Babithosh-18/source.txt";
         String destFile = "destination.txt";
 
         // Part 1: Copy from source to destination using Byte Streams
@@ -16,7 +16,11 @@ public class FileCopy {
             
             // TODO: Read from 'fis' until it returns -1
             // TODO: Write the byte read to 'fos'
-            
+           
+	  while ((byteData = fis.read()) != -1) {
+                fos.write(byteData);
+            } 
+	
 
         } catch (IOException e) {
             System.out.println("Error during file copy: " + e.getMessage());
@@ -30,6 +34,12 @@ public class FileCopy {
             
             // TODO: Read from 'fis' and print each byte as a character to the console
             // Hint: use (char) to cast the integer byte to a character before printing
+
+	int byteData;
+
+            while ((byteData = fis.read()) != -1) {
+                System.out.print((char) byteData);
+            }
 
         } catch (IOException e) {
             System.out.println("Error reading destination file: " + e.getMessage());
